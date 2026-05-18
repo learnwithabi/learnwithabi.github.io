@@ -738,29 +738,236 @@
             }
         }
 
-        /* Responsive */
+        /* Responsive — Tablet (≤768px) */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            .header {
+                padding: 40px 0 60px;
+            }
             .header-content {
-                flex-direction: column;
+                flex-direction: column-reverse;
+                align-items: center;
                 text-align: center;
+                gap: 24px;
+            }
+            .profile-image-container {
+                width: 140px;
+                height: 140px;
             }
             .name {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+            .title {
+                font-size: 1.05rem;
             }
             .contact-grid {
                 justify-content: center;
             }
+            .contact-item {
+                font-size: 0.82rem;
+                padding: 6px 12px;
+            }
             .action-buttons {
                 justify-content: center;
+                flex-wrap: wrap;
+            }
+            .section {
+                padding: 24px;
+                border-radius: 12px;
+            }
+            .section-title {
+                font-size: 1.25rem;
+            }
+            .highlight-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .stat-card {
+                padding: 18px 12px;
+            }
+            .stat-number {
+                font-size: 1.6rem;
+            }
+            .timeline {
+                padding-left: 18px;
+            }
+            .timeline-item {
+                padding-left: 20px;
+            }
+            .timeline-dot {
+                left: -24px;
+                width: 12px;
+                height: 12px;
+            }
+            .timeline-content {
+                padding: 18px;
             }
             .timeline-header {
                 flex-direction: column;
+                gap: 6px;
+            }
+            .timeline-title {
+                font-size: 1.05rem;
+            }
+            .timeline-details li {
+                font-size: 0.88rem;
             }
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .speaking-item {
+                padding: 14px;
+            }
+            .github-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            .github-stats img {
+                width: 100%;
+                max-width: 400px;
+            }
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Responsive — Mobile (≤480px) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+            .header {
+                padding: 30px 0 50px;
+            }
+            .profile-image-container {
+                width: 110px;
+                height: 110px;
+            }
+            .name {
+                font-size: 1.8rem;
+            }
+            .title {
+                font-size: 0.95rem;
+                letter-spacing: 0.5px;
+            }
+            .contact-item {
+                font-size: 0.78rem;
+                padding: 5px 10px;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
             .section {
-                padding: 25px;
+                padding: 18px;
+                margin-bottom: 16px;
+            }
+            .section-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.1rem;
+            }
+            .highlight-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 14px 10px;
+            }
+            .stat-number {
+                font-size: 1.4rem;
+            }
+            .stat-label {
+                font-size: 0.78rem;
+            }
+            .timeline {
+                padding-left: 14px;
+            }
+            .timeline-item {
+                padding-left: 16px;
+                padding-bottom: 24px;
+            }
+            .timeline-dot {
+                left: -20px;
+                width: 10px;
+                height: 10px;
+            }
+            .timeline-content {
+                padding: 14px;
+            }
+            .timeline-title {
+                font-size: 0.95rem;
+            }
+            .timeline-company {
+                font-size: 0.88rem;
+            }
+            .timeline-date {
+                font-size: 0.78rem;
+                padding: 3px 10px;
+            }
+            .timeline-details li {
+                font-size: 0.84rem;
+                padding: 6px 0 6px 16px;
+            }
+            .skill-category {
+                padding: 16px;
+            }
+            .skill-tag {
+                font-size: 0.78rem;
+                padding: 4px 10px;
+            }
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .cert-card {
+                padding: 16px;
+            }
+            .project-card {
+                padding: 18px;
+            }
+            .project-title {
+                font-size: 0.95rem;
+            }
+            .project-desc {
+                font-size: 0.84rem;
+            }
+            .project-tag {
+                font-size: 0.72rem;
+                padding: 3px 8px;
+            }
+            .speaking-item {
+                padding: 12px;
+                gap: 10px;
+            }
+            .speaking-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 0.9rem;
+            }
+            .speaking-title {
+                font-size: 0.9rem;
+            }
+            .speaking-meta {
+                font-size: 0.78rem;
+            }
+            .social-link {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+            .footer {
+                padding: 24px 16px;
             }
         }
 
