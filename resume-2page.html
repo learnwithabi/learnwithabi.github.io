@@ -6,314 +6,461 @@
 <title>Abishek Subramanian — Resume</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --accent: #e94560;
-    --dark:   #1a1a2e;
-    --mid:    #3d3d3d;
-    --muted:  #5e6472;
-    --border: #e0e0e0;
-    --bg:     #f7f7f7;
-  }
+/* ─── Reset ─────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+img { display:block; max-width:100%; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ─── Tokens ─────────────────────────────── */
+:root {
+  --sb:    #16213e;   /* sidebar bg */
+  --sb2:   #1a2748;   /* sidebar secondary */
+  --acc:   #e94560;   /* red accent */
+  --acc2:  #ff6b6b;   /* accent light */
+  --main:  #ffffff;   /* main bg */
+  --dark:  #1a1a2e;
+  --body:  #3a3a4a;
+  --muted: #707585;
+  --rule:  rgba(255,255,255,.15);
+  --mrule: #e8e8ee;
+  --sw:    62mm;      /* sidebar width */
+}
 
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg);
-    color: var(--dark);
-    font-size: 9pt;
-    line-height: 1.45;
-  }
+/* ─── Body ───────────────────────────────── */
+body {
+  font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
+  background:#d0d4de;
+  font-size:8.6pt;
+  line-height:1.42;
+  color:var(--body);
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
 
-  /* ── Page shell ── */
+/* ─── Page shell ─────────────────────────── */
+.page {
+  width:210mm;
+  height:297mm;           /* exact A4 — no overflow */
+  display:grid;
+  grid-template-columns:var(--sw) 1fr;
+  margin:14px auto;
+  box-shadow:0 4px 32px rgba(0,0,0,.22);
+  overflow:hidden;
+  page-break-after:always;
+  background:var(--main);
+}
+.page:last-child { page-break-after:auto; }
+
+/* ─── Sidebar ────────────────────────────── */
+.sb {
+  background:var(--sb);
+  padding:9mm 5.5mm 7mm;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  overflow:hidden;
+}
+
+/* ─── Main area ──────────────────────────── */
+.mn {
+  padding:8mm 7.5mm 6mm 7mm;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+
+/* ═══ SIDEBAR COMPONENTS ═════════════════════════════ */
+
+/* Photo */
+.sb-photo {
+  width:52px; height:52px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2.5px solid var(--acc);
+  margin:0 auto 7px;
+}
+
+/* Name block (page 1 only) */
+.sb-name {
+  font-size:13pt;
+  font-weight:700;
+  color:#fff;
+  text-align:center;
+  line-height:1.2;
+  margin-bottom:2px;
+}
+.sb-role {
+  font-size:7pt;
+  font-weight:500;
+  color:var(--acc2);
+  text-align:center;
+  line-height:1.35;
+  margin-bottom:8px;
+}
+
+/* Section label */
+.sb-sec {
+  font-size:6.5pt;
+  font-weight:700;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:var(--acc);
+  border-bottom:1px solid var(--rule);
+  padding-bottom:3px;
+  margin-bottom:5px;
+  margin-top:8px;
+}
+.sb-sec:first-of-type { margin-top:0; }
+
+/* Contact row */
+.sb-contact { list-style:none; margin-bottom:2px; }
+.sb-contact li {
+  font-size:7pt;
+  color:rgba(255,255,255,.78);
+  padding:2px 0;
+  display:flex;
+  align-items:flex-start;
+  gap:5px;
+  line-height:1.35;
+}
+.sb-contact li a { color:inherit; text-decoration:none; }
+.sb-dot {
+  width:4px; height:4px;
+  background:var(--acc);
+  border-radius:50%;
+  flex-shrink:0;
+  margin-top:4px;
+}
+
+/* Skill group */
+.sb-skill-grp { margin-bottom:5px; }
+.sb-skill-lbl {
+  font-size:6.8pt;
+  font-weight:700;
+  color:rgba(255,255,255,.9);
+  margin-bottom:3px;
+}
+.sb-pills { display:flex; flex-wrap:wrap; gap:2px 3px; }
+.sb-pill {
+  font-size:6.2pt;
+  padding:1.5px 5px;
+  border-radius:8px;
+  background:var(--sb2);
+  color:rgba(255,255,255,.72);
+  border:1px solid rgba(255,255,255,.1);
+  line-height:1.4;
+}
+
+/* Cert block */
+.sb-cert { margin-bottom:5px; }
+.sb-cert-prov {
+  font-size:7pt;
+  font-weight:700;
+  color:rgba(255,255,255,.9);
+  margin-bottom:1px;
+}
+.sb-cert-items {
+  font-size:6.4pt;
+  color:rgba(255,255,255,.65);
+  line-height:1.45;
+}
+
+/* Education */
+.sb-edu-deg {
+  font-size:7pt;
+  font-weight:700;
+  color:rgba(255,255,255,.9);
+  line-height:1.35;
+}
+.sb-edu-sub {
+  font-size:6.5pt;
+  color:var(--acc2);
+  font-weight:500;
+}
+.sb-edu-yr {
+  font-size:6.2pt;
+  color:rgba(255,255,255,.5);
+  margin-top:1px;
+}
+
+/* Speaking compact */
+.sb-speak { list-style:none; }
+.sb-speak li {
+  font-size:6.8pt;
+  color:rgba(255,255,255,.72);
+  line-height:1.4;
+  padding:2px 0 2px 10px;
+  position:relative;
+}
+.sb-speak li::before {
+  content:'▸';
+  position:absolute; left:0; top:2px;
+  color:var(--acc);
+  font-size:6pt;
+}
+
+/* ═══ MAIN COMPONENTS ════════════════════════════════ */
+
+/* Page 1 main header */
+.mn-name {
+  font-size:20pt;
+  font-weight:700;
+  color:var(--dark);
+  letter-spacing:-.3px;
+  line-height:1.1;
+}
+.mn-role {
+  font-size:9pt;
+  font-weight:600;
+  color:var(--acc);
+  margin-top:2px;
+  margin-bottom:7px;
+}
+
+/* Section title */
+.mn-sec {
+  font-size:7pt;
+  font-weight:700;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  color:var(--acc);
+  border-bottom:1.5px solid var(--acc);
+  padding-bottom:2px;
+  margin-bottom:6px;
+  margin-top:8px;
+}
+.mn-sec:first-of-type { margin-top:0; }
+
+/* Summary */
+.mn-summary {
+  font-size:8.2pt;
+  color:var(--body);
+  line-height:1.5;
+}
+
+/* Stats bar */
+.mn-stats {
+  display:flex;
+  margin-top:6px;
+  border:1px solid var(--mrule);
+  border-radius:5px;
+  overflow:hidden;
+}
+.mn-stat {
+  flex:1;
+  text-align:center;
+  padding:5px 3px;
+  border-right:1px solid var(--mrule);
+}
+.mn-stat:last-child { border-right:none; }
+.mn-sn { font-size:11.5pt; font-weight:700; color:var(--dark); line-height:1; }
+.mn-sl { font-size:6.2pt; color:var(--muted); margin-top:2px; line-height:1.2; }
+
+/* Experience item */
+.exp {
+  padding-left:8px;
+  border-left:2.5px solid var(--acc);
+  margin-top:7px;
+}
+.exp:first-of-type { margin-top:0; }
+.exp-hdr { display:flex; justify-content:space-between; align-items:flex-start; gap:4px; flex-wrap:wrap; }
+.exp-title { font-size:9pt; font-weight:700; color:var(--dark); line-height:1.25; }
+.exp-badge {
+  font-size:6.8pt; font-weight:600;
+  color:#fff; background:var(--acc);
+  padding:2px 7px; border-radius:10px;
+  white-space:nowrap; flex-shrink:0;
+  line-height:1.5;
+}
+.exp-co   { font-size:8pt; font-weight:600; color:var(--acc); margin-top:1px; }
+.exp-loc  { font-size:7pt; color:var(--muted); margin:1px 0 3px; }
+.blist    { list-style:none; }
+.blist li {
+  font-size:7.8pt;
+  color:var(--body);
+  line-height:1.44;
+  padding:1px 0 1px 10px;
+  position:relative;
+}
+.blist li::before {
+  content:'▸';
+  position:absolute; left:0;
+  color:var(--acc);
+  font-size:7pt;
+}
+
+/* Early career */
+.ec-lbl {
+  font-size:6.5pt;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:var(--muted);
+  margin:6px 0 3px 8px;
+}
+.ec-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:2px 0 2px 8px;
+  border-left:2px solid var(--mrule);
+  border-bottom:1px dotted var(--mrule);
+  gap:6px;
+}
+.ec-row:last-child { border-bottom:none; }
+.ec-role { font-size:7.8pt; font-weight:600; color:var(--dark); }
+.ec-co   { font-size:7.5pt; color:var(--muted); }
+.ec-dt   { font-size:7pt; color:var(--muted); white-space:nowrap; flex-shrink:0; }
+
+/* Projects 2-col */
+.proj-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px 8px;
+}
+.proj {
+  background:#f9f9fb;
+  border-top:2.5px solid var(--acc);
+  border-radius:4px;
+  padding:5px 6px;
+}
+.proj-name { font-size:7.8pt; font-weight:700; color:var(--dark); margin-bottom:2px; }
+.proj-desc { font-size:7pt; color:var(--body); line-height:1.4; }
+
+/* Page 2 mini-header */
+.p2-hdr {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  border-bottom:2px solid var(--acc);
+  padding-bottom:4px;
+  margin-bottom:8px;
+}
+.p2-name { font-size:10pt; font-weight:700; color:var(--dark); }
+.p2-pg   { font-size:7pt; color:var(--muted); }
+
+/* ─── Print ────────────────────────────────── */
+@media print {
+  body { background:#fff; }
+  .page { margin:0; width:100%; height:297mm; box-shadow:none; }
+  @page { size:A4; margin:0; }
+}
+
+/* ─── Mobile ───────────────────────────────── */
+@media (max-width:700px) {
+  body { background:#fff; }
   .page {
-    width: 210mm;
-    min-height: 297mm;
-    background: #fff;
-    margin: 16px auto;
-    padding: 11mm 13mm 10mm;
-    box-shadow: 0 2px 24px rgba(0,0,0,.12);
-    position: relative;
-    overflow: hidden;
+    width:100%; height:auto;
+    grid-template-columns:1fr;
+    margin:0 0 12px;
   }
-
-  /* top accent bar */
-  .page::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent), #ff8c42);
-  }
-
-  /* ── Page 1 header ── */
-  .hdr { margin-bottom: 10px; }
-  .hdr-top { display: flex; align-items: flex-start; gap: 12px; }
-  .hdr-photo {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2.5px solid var(--accent);
-    flex-shrink: 0;
-  }
-  .hdr-text { flex: 1; }
-  .hdr-name {
-    font-size: 22pt;
-    font-weight: 700;
-    color: var(--dark);
-    letter-spacing: -.4px;
-    line-height: 1.1;
-  }
-  .hdr-role {
-    font-size: 9.5pt;
-    font-weight: 600;
-    color: var(--accent);
-    margin-top: 3px;
-  }
-  .hdr-contacts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 18px;
-    margin-top: 6px;
-    font-size: 7.8pt;
-    color: var(--muted);
-    border-top: 1px solid var(--border);
-    padding-top: 7px;
-  }
-  .hdr-contacts a { color: var(--muted); text-decoration: none; }
-  .hdr-contacts a:hover { color: var(--accent); }
-  .ci { display: flex; align-items: center; gap: 4px; }
-  .ci-dot {
-    width: 5px; height: 5px;
-    background: var(--accent);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* ── Section ── */
-  .sec { margin-bottom: 9px; }
-  .sec-title {
-    font-size: 7.5pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--accent);
-    border-bottom: 1.5px solid var(--accent);
-    padding-bottom: 2px;
-    margin-bottom: 7px;
-  }
-
-  /* ── Summary ── */
-  .summary { font-size: 8.5pt; color: var(--mid); line-height: 1.55; }
-
-  /* ── Stats bar ── */
-  .stats {
-    display: flex;
-    margin-top: 7px;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  .stat {
-    flex: 1;
-    text-align: center;
-    padding: 6px 4px;
-    border-right: 1px solid var(--border);
-  }
-  .stat:last-child { border-right: none; }
-  .sn { font-size: 12pt; font-weight: 700; color: var(--dark); line-height: 1; }
-  .sl { font-size: 6.8pt; color: var(--muted); margin-top: 2px; }
-
-  /* ── Experience ── */
-  .exp { margin-bottom: 8px; padding-left: 9px; border-left: 2.5px solid var(--accent); }
-  .exp-hdr {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 3px;
-  }
-  .exp-title { font-size: 9.5pt; font-weight: 700; color: var(--dark); }
-  .exp-co    { font-size: 8.5pt; font-weight: 600; color: var(--accent); margin-top: 1px; }
-  .exp-badge {
-    font-size: 7.5pt;
-    color: #fff;
-    background: var(--accent);
-    padding: 2px 8px;
-    border-radius: 10px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    height: fit-content;
-  }
-  .exp-loc { font-size: 7.5pt; color: var(--muted); margin: 2px 0 4px; }
-  .bullets { list-style: none; }
-  .bullets li {
-    font-size: 8pt;
-    color: var(--mid);
-    line-height: 1.5;
-    padding: 1.5px 0 1.5px 11px;
-    position: relative;
-  }
-  .bullets li::before {
-    content: '▸';
-    position: absolute; left: 0;
-    color: var(--accent);
-    font-size: 7.5pt;
-  }
-
-  /* ── Page 2 mini-header ── */
-  .p2-hdr {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-  }
-  .p2-name { font-size: 11pt; font-weight: 700; color: var(--dark); }
-  .p2-pg   { font-size: 7.5pt; color: var(--muted); }
-
-  /* ── Early career table ── */
-  .ec { margin-top: 5px; }
-  .ec-lbl {
-    font-size: 7pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .8px;
-    color: var(--muted);
-    margin-bottom: 4px;
-  }
-  .ec-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 2.5px 0 2.5px 9px;
-    border-left: 2px solid var(--border);
-    border-bottom: 1px dotted var(--border);
-    font-size: 8pt;
-  }
-  .ec-row:last-child { border-bottom: none; }
-  .ec-role { font-weight: 600; color: var(--dark); }
-  .ec-co   { color: var(--muted); margin-left: 4px; }
-  .ec-date { font-size: 7.5pt; color: var(--muted); }
-
-  /* ── Two-column grid ── */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-  /* ── Skills ── */
-  .skill-blk { margin-bottom: 6px; }
-  .skill-lbl { font-size: 7.8pt; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
-  .pills { display: flex; flex-wrap: wrap; gap: 3px; }
-  .pill {
-    font-size: 7pt;
-    padding: 2px 7px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--mid);
-    background: #fafafa;
-  }
-
-  /* ── Projects ── */
-  .proj { margin-bottom: 6px; }
-  .proj-name { font-size: 8.2pt; font-weight: 700; color: var(--dark); }
-  .proj-desc { font-size: 7.5pt; color: var(--mid); line-height: 1.45; margin-top: 1px; }
-
-  /* ── Certs ── */
-  .cert-blk { margin-bottom: 5px; }
-  .cert-prov { font-size: 8pt; font-weight: 700; color: var(--dark); margin-bottom: 1px; }
-  .cert-list { font-size: 7.5pt; color: var(--mid); line-height: 1.5; }
-
-  /* ── Education ── */
-  .edu-deg  { font-size: 8.5pt; font-weight: 700; color: var(--dark); }
-  .edu-sch  { font-size: 8pt; font-weight: 600; color: var(--accent); }
-  .edu-yr   { font-size: 7.5pt; color: var(--muted); }
-
-  /* ── Speaking ── */
-  .speak-list { list-style: none; }
-  .speak-list li {
-    font-size: 7.8pt;
-    color: var(--mid);
-    line-height: 1.5;
-    padding: 1.5px 0 1.5px 11px;
-    position: relative;
-  }
-  .speak-list li::before {
-    content: '●';
-    position: absolute; left: 0; top: 4px;
-    color: var(--accent);
-    font-size: 5.5pt;
-  }
-
-  /* ── Print ── */
-  @media print {
-    body { background: #fff; }
-    .page {
-      margin: 0; width: 100%;
-      box-shadow: none;
-      page-break-after: always;
-    }
-    .page:last-child { page-break-after: auto; }
-    @page { size: A4; margin: 0; }
-    a { color: inherit !important; }
-  }
-
-  /* ── Mobile ── */
-  @media (max-width: 768px) {
-    body { font-size: 10pt; }
-    .page { width: 100%; padding: 16px; margin: 0 0 12px; min-height: auto; }
-    .page::before { display: none; }
-    .two-col { grid-template-columns: 1fr; }
-    .stats { flex-wrap: wrap; }
-    .stat { min-width: 45%; }
-    .hdr-name { font-size: 18pt; }
-    .exp-hdr { flex-direction: column; }
-    .exp-badge { align-self: flex-start; }
-    .p2-hdr { display: none; }
-  }
+  .sb { padding:16px; }
+  .mn { padding:16px; }
+  .sb-name { font-size:16pt; }
+  .mn-name { font-size:16pt; }
+  .proj-grid { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════ PAGE 1 ═══════════════════════ -->
+<!-- ══════════════════ PAGE 1 ══════════════════ -->
 <div class="page">
 
-  <!-- Header -->
-  <div class="hdr">
-    <div class="hdr-top">
-      <img src="abishek pp.png" alt="Abishek Subramanian" class="hdr-photo">
-      <div class="hdr-text">
-        <div class="hdr-name">Abishek Subramanian</div>
-        <div class="hdr-role">Associate Director — Databricks Technologies &amp; Delivery &nbsp;|&nbsp; Data &amp; AI Solution Architect</div>
-      </div>
-    </div>
-    <div class="hdr-contacts">
-      <span class="ci"><span class="ci-dot"></span><a href="mailto:Abishek_vnb@hotmail.com">Abishek_vnb@hotmail.com</a></span>
-      <span class="ci"><span class="ci-dot"></span><a href="tel:+919845133922">+91 98451 33922</a></span>
-      <span class="ci"><span class="ci-dot"></span>Bengaluru, India</span>
-      <span class="ci"><span class="ci-dot"></span><a href="https://linkedin.com/in/abishek-subramanian">linkedin.com/in/abishek-subramanian</a></span>
-      <span class="ci"><span class="ci-dot"></span><a href="https://github.com/learnwithabi">github.com/learnwithabi</a></span>
-      <span class="ci"><span class="ci-dot"></span><a href="https://learnwithabi.github.io">learnwithabi.github.io</a></span>
-    </div>
-  </div>
+  <!-- SIDEBAR -->
+  <aside class="sb">
+    <img src="abishek pp.png" alt="Abishek Subramanian" class="sb-photo">
+    <div class="sb-name">Abishek<br>Subramanian</div>
+    <div class="sb-role">Associate Director<br>Databricks Technologies &amp; Delivery</div>
 
-  <!-- Summary -->
-  <div class="sec">
-    <div class="sec-title">Professional Summary</div>
-    <p class="summary">
-      Data and AI leader with <strong>18+ years</strong> of enterprise experience helping global organisations turn fragmented data estates into governed, AI-ready lakehouse platforms — at petabyte scale, across clouds, and at speed. Currently leading one of the most complex Azure-to-GCP Databricks migrations in the region for a global retail enterprise. Previously at Databricks for nearly 4 years, partnering with Fortune 500 clients to architect and operationalize high-impact data and AI platforms. Deep expertise across the full Databricks stack — Unity Catalog, LakeFlow, GenAI, Delta Live Tables — and multi-cloud delivery leadership on Azure, AWS, and GCP.
+    <div class="sb-sec">Contact</div>
+    <ul class="sb-contact">
+      <li><span class="sb-dot"></span><a href="mailto:Abishek_vnb@hotmail.com">Abishek_vnb@hotmail.com</a></li>
+      <li><span class="sb-dot"></span><a href="tel:+919845133922">+91 98451 33922</a></li>
+      <li><span class="sb-dot"></span>Bengaluru, India</li>
+      <li><span class="sb-dot"></span><a href="https://linkedin.com/in/abishek-subramanian">linkedin.com/in/abishek-subramanian</a></li>
+      <li><span class="sb-dot"></span><a href="https://github.com/learnwithabi">github.com/learnwithabi</a></li>
+      <li><span class="sb-dot"></span><a href="https://learnwithabi.github.io">learnwithabi.github.io</a></li>
+    </ul>
+
+    <div class="sb-sec">Databricks &amp; AI/ML</div>
+    <div class="sb-pills">
+      <span class="sb-pill">Databricks Lakehouse</span>
+      <span class="sb-pill">Unity Catalog</span>
+      <span class="sb-pill">Delta Live Tables</span>
+      <span class="sb-pill">LakeFlow</span>
+      <span class="sb-pill">Genie AI/BI</span>
+      <span class="sb-pill">AgentBrick</span>
+      <span class="sb-pill">RAG / GenAI</span>
+      <span class="sb-pill">MLflow</span>
+      <span class="sb-pill">Model Serving</span>
+      <span class="sb-pill">Auto Loader</span>
+      <span class="sb-pill">Structured Streaming</span>
+      <span class="sb-pill">Databricks Apps</span>
+      <span class="sb-pill">Asset Bundles</span>
+      <span class="sb-pill">Delta Lake</span>
+      <span class="sb-pill">dbt</span>
+      <span class="sb-pill">PySpark</span>
+      <span class="sb-pill">Databricks SQL</span>
+    </div>
+
+    <div class="sb-sec">Cloud Platforms</div>
+    <div class="sb-pills">
+      <span class="sb-pill">Azure Databricks</span>
+      <span class="sb-pill">ADLS Gen2</span>
+      <span class="sb-pill">Azure Event Hubs</span>
+      <span class="sb-pill">Azure Key Vault</span>
+      <span class="sb-pill">Azure DevOps</span>
+      <span class="sb-pill">ARM Templates</span>
+      <span class="sb-pill">AKS</span>
+      <span class="sb-pill">AWS Databricks</span>
+      <span class="sb-pill">Amazon S3 / EC2</span>
+      <span class="sb-pill">Amazon Bedrock</span>
+      <span class="sb-pill">AWS IAM</span>
+      <span class="sb-pill">GCP Databricks</span>
+      <span class="sb-pill">GCS / BigQuery</span>
+      <span class="sb-pill">Terraform</span>
+    </div>
+
+    <div class="sb-sec">DevOps &amp; Programming</div>
+    <div class="sb-pills">
+      <span class="sb-pill">Python</span>
+      <span class="sb-pill">SQL / Spark SQL</span>
+      <span class="sb-pill">Docker</span>
+      <span class="sb-pill">Kubernetes</span>
+      <span class="sb-pill">CI/CD</span>
+      <span class="sb-pill">Jenkins</span>
+      <span class="sb-pill">Ansible</span>
+      <span class="sb-pill">Bash</span>
+      <span class="sb-pill">Grafana</span>
+      <span class="sb-pill">ELK Stack</span>
+      <span class="sb-pill">Prometheus</span>
+    </div>
+
+    <div class="sb-sec">Education</div>
+    <div class="sb-edu-deg">B.Tech — Electronics &amp; Communication Engineering</div>
+    <div class="sb-edu-sub">Pondicherry University</div>
+    <div class="sb-edu-yr">2004 – 2007 · Pondicherry, India</div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="mn">
+    <div class="mn-name">Abishek Subramanian</div>
+    <div class="mn-role">Data &amp; AI Solution Architect | Databricks Technologies &amp; Delivery</div>
+
+    <div class="mn-sec">Professional Summary</div>
+    <p class="mn-summary">
+      Data and AI leader with <strong>18+ years</strong> of enterprise experience helping global organisations turn fragmented data estates into governed, AI-ready lakehouse platforms — at petabyte scale, across clouds, and at speed. Currently leading one of the most complex Azure-to-GCP Databricks migrations in the region for a global retail enterprise. Previously at Databricks for <strong>nearly 4 years</strong>, partnering with Fortune 500 clients to architect and operationalize high-impact data and AI platforms. Deep expertise across the full Databricks stack — Unity Catalog, LakeFlow, GenAI, Delta Live Tables — and multi-cloud delivery on Azure, AWS, and GCP.
     </p>
-    <div class="stats">
-      <div class="stat"><div class="sn">18+</div><div class="sl">Years Experience</div></div>
-      <div class="stat"><div class="sn">15+</div><div class="sl">Team Size Led</div></div>
-      <div class="stat"><div class="sn">70+ TB</div><div class="sl">Data Migrated</div></div>
-      <div class="stat"><div class="sn">5+</div><div class="sl">Years in Databricks</div></div>
-      <div class="stat"><div class="sn">20%+</div><div class="sl">Efficiency Gains</div></div>
+    <div class="mn-stats">
+      <div class="mn-stat"><div class="mn-sn">18+</div><div class="mn-sl">Years Experience</div></div>
+      <div class="mn-stat"><div class="mn-sn">5+</div><div class="mn-sl">Years in Databricks</div></div>
+      <div class="mn-stat"><div class="mn-sn">15+</div><div class="mn-sl">Team Size Led</div></div>
+      <div class="mn-stat"><div class="mn-sn">70+ TB</div><div class="mn-sl">Data Migrated</div></div>
+      <div class="mn-stat"><div class="mn-sn">20%+</div><div class="mn-sl">Efficiency Gains</div></div>
     </div>
-  </div>
 
-  <!-- Experience -->
-  <div class="sec">
-    <div class="sec-title">Professional Experience</div>
+    <div class="mn-sec">Professional Experience</div>
 
     <div class="exp">
       <div class="exp-hdr">
@@ -324,10 +471,10 @@
         <span class="exp-badge">Feb 2026 – Present</span>
       </div>
       <div class="exp-loc">Bengaluru, India</div>
-      <ul class="bullets">
+      <ul class="blist">
         <li>Lead the <strong>Databricks CoE (Center of Excellence)</strong> — defining lakehouse architecture standards, governance frameworks, and delivery best practices across enterprise engagements</li>
-        <li>Architecting a <strong>petabyte-scale Azure-to-GCP Databricks lakehouse migration</strong> for a global retail group — 70+ TB moved through a phased, fully automated, zero-downtime migration program</li>
-        <li>Designed a <strong>six-step automated migration framework</strong>: asset classification → configuration mapping → JSON transform → dependency-ordered deployment → REST-API deployment → validation</li>
+        <li>Architecting a <strong>petabyte-scale Azure-to-GCP Databricks lakehouse migration</strong> for a global retail group — 70+ TB moved through a phased, fully automated, zero-downtime program</li>
+        <li>Designed a <strong>six-step automated migration framework</strong>: asset classification → config mapping → JSON transform → dependency-ordered deployment → REST-API deployment → validation</li>
         <li>Built custom <strong>Asset Migrator &amp; Asset Validator</strong> frameworks for governed, error-free cross-cloud migration of clusters, jobs, pipelines, secrets, libraries, and policies</li>
         <li>Implemented <strong>Unity Catalog governance</strong> on target platform — preserving access controls, data lineage, and audit logs throughout the migration lifecycle</li>
         <li>Lead a distributed offshore/onsite engineering team, owning solution architecture, technical mentoring, and senior stakeholder management</li>
@@ -343,36 +490,76 @@
         <span class="exp-badge">May 2022 – Feb 2026</span>
       </div>
       <div class="exp-loc">Bengaluru, India</div>
-      <ul class="bullets">
-        <li>Established <strong>Databricks Asset Bundle (DAB)</strong> deployment best practices, reducing development cycles and infrastructure costs for enterprise customers</li>
-        <li>Developed implementation guidelines for <strong>GenAI initiatives using RAG architecture</strong> (Genie AI/BI, AgentBrick), enabling product teams to adopt GenAI at enterprise scale</li>
-        <li>Architected production-grade data pipelines using <strong>Delta Live Tables + dbt</strong> — medallion architecture, data quality expectations, and automated Databricks Workflows orchestration</li>
-        <li>Designed and delivered a <strong>custom AI Bot Space</strong> on Databricks Apps, integrating Unity Catalog and custom models into a secure, governed enterprise AI tool</li>
-        <li>Built <strong>ML lifecycle platforms</strong> with MLflow — experiment tracking, model registry, and REST-based Model Serving endpoints; resolved critical ML workload blockers for enterprise clients</li>
-        <li>Optimised <strong>platform costs via system tables</strong> — DBU consumption tracking, cluster utilisation analysis, and autoscaling policy enforcement across teams</li>
+      <ul class="blist">
+        <li>Established <strong>Databricks Asset Bundle (DAB)</strong> deployment best practices — reducing development cycles and infrastructure costs for enterprise customers</li>
+        <li>Developed implementation guidelines for <strong>GenAI using RAG architecture</strong> (Genie AI/BI, AgentBrick), enabling product teams to adopt GenAI at enterprise scale</li>
+        <li>Architected production-grade pipelines with <strong>Delta Live Tables + dbt</strong> — medallion architecture, data quality expectations, and automated Workflows orchestration</li>
+        <li>Designed a <strong>custom AI Bot Space</strong> on Databricks Apps, integrating Unity Catalog and custom models into a secure, governed enterprise AI tool</li>
+        <li>Built <strong>ML lifecycle platforms</strong> with MLflow — experiment tracking, model registry, REST-based Model Serving; resolved critical ML workload blockers for enterprise clients</li>
+        <li>Optimised <strong>platform costs via system tables</strong> — DBU tracking, cluster utilisation analysis, and autoscaling policy enforcement across teams</li>
       </ul>
     </div>
 
-  </div>
-
+  </main>
 </div>
-<!-- ═══════════════════════ END PAGE 1 ═══════════════════════ -->
+<!-- ══════════════════ END PAGE 1 ══════════════════ -->
 
 
-<!-- ═══════════════════════ PAGE 2 ═══════════════════════ -->
+<!-- ══════════════════ PAGE 2 ══════════════════ -->
 <div class="page">
 
-  <!-- Continuation header -->
-  <div class="p2-hdr">
-    <span class="p2-name">Abishek Subramanian</span>
-    <span class="p2-pg">Data &amp; AI Solution Architect &nbsp;·&nbsp; Page 2 of 2</span>
-  </div>
+  <!-- SIDEBAR PAGE 2 -->
+  <aside class="sb">
 
-  <!-- Experience continued -->
-  <div class="sec">
-    <div class="sec-title">Professional Experience (continued)</div>
+    <div class="sb-sec" style="margin-top:0;">Certifications</div>
 
-    <div class="exp">
+    <div class="sb-cert">
+      <div class="sb-cert-prov">Databricks</div>
+      <div class="sb-cert-items">Data Engineering Associate · Platform Administrator · Generative AI Fundamentals · Lakehouse Fundamentals</div>
+    </div>
+    <div class="sb-cert">
+      <div class="sb-cert-prov">Microsoft Azure</div>
+      <div class="sb-cert-items">Solutions Architect Expert · DevOps Engineer Expert · Administrator Associate · Identity &amp; Access Administrator</div>
+    </div>
+    <div class="sb-cert">
+      <div class="sb-cert-prov">AWS</div>
+      <div class="sb-cert-items">Solutions Architect Professional · Solutions Architect Associate · AWS Community Builder</div>
+    </div>
+    <div class="sb-cert">
+      <div class="sb-cert-prov">Oracle</div>
+      <div class="sb-cert-items">VM 3.0 Implementation Specialist · Cloud Infrastructure Classic Associate Architect</div>
+    </div>
+    <div class="sb-cert">
+      <div class="sb-cert-prov">Others</div>
+      <div class="sb-cert-items">Red Hat Certified Engineer (RHCE) · VMware VCP-DCV · Citrix XenServer Administration · ITIL V3</div>
+    </div>
+
+    <div class="sb-sec">Speaking &amp; Community</div>
+    <ul class="sb-speak">
+      <li><strong>Founder &amp; Lead</strong> — Databricks User Group India (India's largest; 6 cities: Bangalore, Hyderabad, Pune, Coimbatore, Kolkata, Chennai)</li>
+      <li><strong>Creator</strong> — #LearnWithAbi (Databricks &amp; GenAI content on LinkedIn, Medium, GitHub)</li>
+      <li>Speaker — DATA+AI Summit Recap: <em>Databricks &amp; Apache Iceberg</em></li>
+      <li>Speaker — 9th World ML Summit: <em>"Unlocking MLOps Potential"</em></li>
+      <li>Speaker — ServerlessDays Bengaluru: <em>Databricks Serverless SQL</em></li>
+      <li>Speaker — TechXConf 2024, Asia's largest AI &amp; cloud conference</li>
+      <li>Session — Nasdaq AWS Community: <em>Bedrock + Databricks Model Serving</em></li>
+      <li>Workshops at PSG Tech, Adamas University &amp; MITS</li>
+      <li>Nominated — Topmate Creator Awards 2024</li>
+    </ul>
+
+  </aside>
+
+  <!-- MAIN PAGE 2 -->
+  <main class="mn">
+
+    <div class="p2-hdr">
+      <span class="p2-name">Abishek Subramanian</span>
+      <span class="p2-pg">Data &amp; AI Solution Architect · Page 2 of 2</span>
+    </div>
+
+    <div class="mn-sec" style="margin-top:0;">Professional Experience (continued)</div>
+
+    <div class="exp" style="margin-top:0;">
       <div class="exp-hdr">
         <div>
           <div class="exp-title">Principal Software Engineer</div>
@@ -380,9 +567,9 @@
         </div>
         <span class="exp-badge">Aug 2021 – May 2022</span>
       </div>
-      <ul class="bullets">
-        <li>Onboarded Oracle Cloud Fusion (SaaS) enterprise customers — owning solution proposals, implementation, and coordination across internal stakeholders</li>
-        <li>Defined cloud migration strategy from on-premises to <strong>Oracle Cloud Infrastructure (OCI)</strong> for SaaS and IaaS workloads; drove critical escalations to resolution</li>
+      <ul class="blist">
+        <li>Onboarded Oracle Cloud Fusion (SaaS) enterprise customers — solution proposals, implementation, and cross-stakeholder coordination</li>
+        <li>Defined migration strategy from on-premises to <strong>Oracle Cloud Infrastructure (OCI)</strong> for SaaS and IaaS workloads; drove critical escalations to resolution</li>
       </ul>
     </div>
 
@@ -394,135 +581,61 @@
         </div>
         <span class="exp-badge">May 2018 – Aug 2021</span>
       </div>
-      <ul class="bullets">
+      <ul class="blist">
         <li>Designed scalable, secure multi-cloud architectures across <strong>Azure, AWS, and VMware</strong>; led legacy-to-cloud-native modernisation projects</li>
         <li>Built IaC automation frameworks using <strong>Terraform, Ansible, and Jenkins</strong>; established cloud governance, security, and compliance standards</li>
       </ul>
     </div>
 
-    <div class="ec">
-      <div class="ec-lbl">Earlier Career</div>
-      <div class="ec-row">
-        <span><span class="ec-role">Senior Software Engineer</span><span class="ec-co">— Oracle India Pvt. Ltd. &nbsp;·&nbsp; Led Cloud Central team for SaaS Fusion post-provision assessments</span></span>
-        <span class="ec-date">Jul 2015 – May 2018</span>
-      </div>
-      <div class="ec-row">
-        <span><span class="ec-role">Cloud Engineer</span><span class="ec-co">— Citrix R&amp;D India &nbsp;·&nbsp; End-to-end Citrix Cloud / XenServer, XenApp, XenDesktop, NetScaler deployments</span></span>
-        <span class="ec-date">Jun 2013 – Jul 2015</span>
-      </div>
-      <div class="ec-row">
-        <span><span class="ec-role">System Engineer</span><span class="ec-co">— CSS Corp &nbsp;·&nbsp; Global Red Hat / XEN / VMware server administration for Blackboard clients</span></span>
-        <span class="ec-date">Jun 2011 – Jun 2013</span>
-      </div>
-      <div class="ec-row">
-        <span><span class="ec-role">Software Engineer (Contract)</span><span class="ec-co">— Wipro Technologies &nbsp;·&nbsp; UNIX batch operations, HPSM/HPOM automation, production support</span></span>
-        <span class="ec-date">Sep 2010 – Jun 2011</span>
-      </div>
+    <div class="ec-lbl">Earlier Career</div>
+    <div class="ec-row">
+      <span><span class="ec-role">Senior Software Engineer</span> <span class="ec-co">— Oracle India · Led Cloud Central team for SaaS Fusion post-provision assessments</span></span>
+      <span class="ec-dt">Jul 2015 – May 2018</span>
     </div>
-  </div>
-
-  <!-- Skills + Projects side by side -->
-  <div class="two-col" style="margin-bottom: 9px;">
-
-    <div class="sec" style="margin-bottom: 0;">
-      <div class="sec-title">Technical Skills</div>
-      <div class="skill-blk">
-        <div class="skill-lbl">Databricks &amp; AI/ML</div>
-        <div class="pills">
-          <span class="pill">Databricks Lakehouse</span><span class="pill">Unity Catalog</span><span class="pill">Delta Live Tables</span><span class="pill">MLflow</span><span class="pill">Model Serving</span><span class="pill">LakeFlow</span><span class="pill">Genie AI/BI</span><span class="pill">AgentBrick</span><span class="pill">RAG / GenAI</span><span class="pill">Auto Loader</span><span class="pill">Structured Streaming</span><span class="pill">Databricks Apps</span><span class="pill">Asset Bundles</span><span class="pill">Delta Lake</span><span class="pill">dbt</span><span class="pill">PySpark</span>
-        </div>
-      </div>
-      <div class="skill-blk">
-        <div class="skill-lbl">Cloud Platforms</div>
-        <div class="pills">
-          <span class="pill">Azure Databricks</span><span class="pill">ADLS Gen2</span><span class="pill">Azure Event Hubs</span><span class="pill">Azure Key Vault</span><span class="pill">Azure DevOps</span><span class="pill">ARM Templates</span><span class="pill">AWS Databricks</span><span class="pill">Amazon S3 / EC2</span><span class="pill">Amazon Bedrock</span><span class="pill">GCP Databricks</span><span class="pill">Google Cloud Storage</span><span class="pill">BigQuery</span><span class="pill">Terraform</span>
-        </div>
-      </div>
-      <div class="skill-blk">
-        <div class="skill-lbl">DevOps &amp; Programming</div>
-        <div class="pills">
-          <span class="pill">Python</span><span class="pill">SQL / Spark SQL</span><span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">CI/CD</span><span class="pill">Jenkins</span><span class="pill">Ansible</span><span class="pill">Bash</span><span class="pill">Grafana</span><span class="pill">ELK Stack</span>
-        </div>
-      </div>
+    <div class="ec-row">
+      <span><span class="ec-role">Cloud Engineer</span> <span class="ec-co">— Citrix R&amp;D India · XenApp, XenDesktop, NetScaler &amp; StoreFront enterprise deployments</span></span>
+      <span class="ec-dt">Jun 2013 – Jul 2015</span>
+    </div>
+    <div class="ec-row">
+      <span><span class="ec-role">System Engineer</span> <span class="ec-co">— CSS Corp · Global Red Hat / XEN / VMware server administration</span></span>
+      <span class="ec-dt">Jun 2011 – Jun 2013</span>
+    </div>
+    <div class="ec-row">
+      <span><span class="ec-role">Software Engineer (Contract)</span> <span class="ec-co">— Wipro Technologies · UNIX batch ops, HPSM/HPOM automation, production support</span></span>
+      <span class="ec-dt">Sep 2010 – Jun 2011</span>
     </div>
 
-    <div class="sec" style="margin-bottom: 0;">
-      <div class="sec-title">Key Projects</div>
+    <div class="mn-sec">Key Projects</div>
+    <div class="proj-grid">
       <div class="proj">
         <div class="proj-name">Petabyte-Scale Azure-to-GCP Lakehouse Migration</div>
-        <div class="proj-desc">70+ TB zero-downtime migration for a global retail enterprise with full Unity Catalog governance — six-step automated Asset Migrator framework.</div>
+        <div class="proj-desc">70+ TB zero-downtime migration for a global retail enterprise with full Unity Catalog governance and six-step automated Asset Migrator &amp; Validator framework.</div>
       </div>
       <div class="proj">
         <div class="proj-name">GenAI RAG AI Bot Space on Databricks Apps</div>
-        <div class="proj-desc">Enterprise AI Bot Space using RAG, Unity Catalog-managed models, and MLflow — secure, governed GenAI at scale.</div>
+        <div class="proj-desc">Enterprise AI Bot Space using RAG, Unity Catalog-managed models, and MLflow for secure, governed GenAI workflows at scale.</div>
       </div>
       <div class="proj">
         <div class="proj-name">Delta Live Tables + dbt Enterprise Pipeline</div>
-        <div class="proj-desc">Production medallion architecture pipelines with data quality expectations and automated Databricks Workflows orchestration.</div>
+        <div class="proj-desc">Medallion architecture pipelines with data quality expectations and automated Workflows orchestration for enterprise ELT at scale.</div>
       </div>
       <div class="proj">
         <div class="proj-name">Databricks Platform Cost Optimisation</div>
-        <div class="proj-desc">System-tables observability framework tracking DBU consumption, cluster utilisation, and job cost attribution across enterprise teams.</div>
+        <div class="proj-desc">System-tables observability — DBU tracking, cluster utilisation analysis, and autoscaling policies delivering measurable spend reduction.</div>
       </div>
       <div class="proj">
         <div class="proj-name">Amazon Bedrock + Databricks Model Serving</div>
-        <div class="proj-desc">End-to-end integration between Amazon Bedrock foundation models and Databricks Model Serving — demonstrated at Nasdaq AWS Community.</div>
+        <div class="proj-desc">Integration between Bedrock foundation models and Databricks Model Serving endpoints, demonstrated at Nasdaq AWS Community.</div>
+      </div>
+      <div class="proj">
+        <div class="proj-name">Multi-Cloud IaC Automation Framework</div>
+        <div class="proj-desc">Terraform, Ansible &amp; Jenkins-based automation across Azure, AWS, VMware — provisioning, CI/CD pipelines, and cloud governance at NTT Data.</div>
       </div>
     </div>
 
-  </div>
-
-  <!-- Certs + Education + Speaking side by side -->
-  <div class="two-col">
-
-    <div>
-      <div class="sec">
-        <div class="sec-title">Certifications</div>
-        <div class="cert-blk">
-          <div class="cert-prov">Databricks</div>
-          <div class="cert-list">Data Engineering Associate &nbsp;·&nbsp; Platform Administrator &nbsp;·&nbsp; Generative AI Fundamentals &nbsp;·&nbsp; Lakehouse Fundamentals</div>
-        </div>
-        <div class="cert-blk">
-          <div class="cert-prov">Microsoft Azure</div>
-          <div class="cert-list">Solutions Architect Expert &nbsp;·&nbsp; DevOps Engineer Expert &nbsp;·&nbsp; Administrator Associate &nbsp;·&nbsp; Identity &amp; Access Administrator</div>
-        </div>
-        <div class="cert-blk">
-          <div class="cert-prov">AWS</div>
-          <div class="cert-list">Solutions Architect Professional &nbsp;·&nbsp; Solutions Architect Associate &nbsp;·&nbsp; AWS Community Builder</div>
-        </div>
-        <div class="cert-blk">
-          <div class="cert-prov">Others</div>
-          <div class="cert-list">RHCE &nbsp;·&nbsp; VMware VCP-DCV &nbsp;·&nbsp; Citrix XenServer &nbsp;·&nbsp; Oracle VM 3.0 &amp; OCI &nbsp;·&nbsp; ITIL V3</div>
-        </div>
-      </div>
-
-      <div class="sec" style="margin-bottom: 0;">
-        <div class="sec-title">Education</div>
-        <div class="edu-deg">Bachelor of Technology — Electronics &amp; Communication Engineering</div>
-        <div class="edu-sch">Pondicherry University</div>
-        <div class="edu-yr">2004 – 2007 &nbsp;·&nbsp; Pondicherry, India</div>
-      </div>
-    </div>
-
-    <div class="sec" style="margin-bottom: 0;">
-      <div class="sec-title">Speaking &amp; Community</div>
-      <ul class="speak-list">
-        <li><strong>Founder &amp; Lead</strong> — Databricks User Group India (India's largest; Bangalore, Hyderabad, Pune, Coimbatore, Kolkata, Chennai)</li>
-        <li><strong>Creator</strong> — #LearnWithAbi (Databricks, GenAI &amp; data engineering content on LinkedIn, Medium, GitHub)</li>
-        <li>Speaker — Databricks DATA+AI Summit Recap: <em>Databricks &amp; Apache Iceberg</em></li>
-        <li>Speaker — 9th World ML Summit, Bengaluru: <em>"Unlocking MLOps Potential"</em></li>
-        <li>Speaker — ServerlessDays Bengaluru: <em>Databricks Serverless SQL</em></li>
-        <li>Speaker — TechXConf 2024, Asia's largest AI &amp; cloud conference</li>
-        <li>Session — Nasdaq AWS Community: <em>Amazon Bedrock + Databricks Model Serving</em></li>
-        <li>Workshops at PSG Tech Coimbatore, Adamas University Kolkata &amp; MITS</li>
-        <li>Nominated — Topmate Creator Awards 2024, Extraordinaire Category</li>
-      </ul>
-    </div>
-
-  </div>
-
+  </main>
 </div>
-<!-- ═══════════════════════ END PAGE 2 ═══════════════════════ -->
+<!-- ══════════════════ END PAGE 2 ══════════════════ -->
 
 </body>
 </html>
