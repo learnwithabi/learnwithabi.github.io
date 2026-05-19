@@ -257,40 +257,64 @@ body {
   border-right:1px solid var(--mrule);
 }
 .mn-stat:last-child { border-right:none; }
-.mn-sn { font-size:11.5pt; font-weight:700; color:var(--dark); line-height:1; }
-.mn-sl { font-size:6.2pt; color:var(--muted); margin-top:2px; line-height:1.2; }
+.mn-sn { font-size:12pt; font-weight:700; color:var(--dark); line-height:1; }
+.mn-sl { font-size:6.5pt; color:var(--muted); margin-top:2px; line-height:1.2; }
+
+/* Core Competencies ATS strip */
+.ats-strip {
+  border:1px solid var(--mrule);
+  border-left:3px solid var(--acc);
+  border-radius:4px;
+  padding:5px 10px;
+  margin:6px 0 5px;
+  background:#f8fafd;
+}
+.ats-strip-lbl {
+  font-size:6.5pt;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--acc);
+  margin-bottom:3px;
+}
+.ats-strip-items {
+  font-size:8pt;
+  color:var(--body);
+  line-height:1.5;
+}
 
 /* Experience item */
 .exp {
-  padding-left:8px;
-  border-left:2.5px solid var(--acc);
-  margin-top:7px;
+  padding-left:9px;
+  border-left:3px solid var(--acc);
+  margin-top:8px;
 }
 .exp:first-of-type { margin-top:0; }
 .exp-hdr { display:flex; justify-content:space-between; align-items:flex-start; gap:4px; flex-wrap:wrap; }
-.exp-title { font-size:9pt; font-weight:700; color:var(--dark); line-height:1.25; }
+.exp-title { font-size:9.5pt; font-weight:700; color:var(--dark); line-height:1.25; }
 .exp-badge {
-  font-size:6.8pt; font-weight:600;
+  font-size:7pt; font-weight:600;
   color:#fff; background:var(--acc);
-  padding:2px 7px; border-radius:10px;
+  padding:2px 8px; border-radius:10px;
   white-space:nowrap; flex-shrink:0;
   line-height:1.5;
 }
-.exp-co   { font-size:8pt; font-weight:600; color:var(--acc); margin-top:1px; }
-.exp-loc  { font-size:7pt; color:var(--muted); margin:1px 0 3px; }
+.exp-co   { font-size:8.5pt; font-weight:600; color:var(--acc); margin-top:1px; }
+.exp-loc  { font-size:7.5pt; color:var(--muted); margin:1px 0 4px; }
 .blist    { list-style:none; }
 .blist li {
-  font-size:7.8pt;
+  font-size:8.2pt;
   color:var(--body);
-  line-height:1.44;
-  padding:1px 0 1px 10px;
+  line-height:1.5;
+  padding:2px 0 2px 11px;
   position:relative;
 }
 .blist li::before {
-  content:'▸';
+  content:'–';
   position:absolute; left:0;
   color:var(--acc);
-  font-size:7pt;
+  font-weight:700;
+  font-size:8pt;
 }
 
 /* Early career */
@@ -328,8 +352,8 @@ body {
   border-radius:4px;
   padding:6px 7px;
 }
-.proj-name { font-size:7.8pt; font-weight:700; color:var(--dark); margin-bottom:2px; }
-.proj-desc { font-size:7pt; color:var(--body); line-height:1.45; }
+.proj-name { font-size:8pt; font-weight:700; color:var(--dark); margin-bottom:2px; }
+.proj-desc { font-size:7.5pt; color:var(--body); line-height:1.48; }
 
 /* Page 2 mini-header */
 .p2-hdr {
@@ -392,11 +416,14 @@ body {
       <span class="sb-pill">Databricks Lakehouse</span>
       <span class="sb-pill">Unity Catalog</span>
       <span class="sb-pill">Delta Live Tables</span>
+      <span class="sb-pill">Apache Spark</span>
+      <span class="sb-pill">PySpark</span>
       <span class="sb-pill">LakeFlow</span>
       <span class="sb-pill">Genie AI/BI</span>
       <span class="sb-pill">AgentBrick</span>
-      <span class="sb-pill">RAG / GenAI</span>
+      <span class="sb-pill">RAG / GenAI / LLM</span>
       <span class="sb-pill">MLflow</span>
+      <span class="sb-pill">MLOps</span>
       <span class="sb-pill">Model Serving</span>
       <span class="sb-pill">Auto Loader</span>
       <span class="sb-pill">Structured Streaming</span>
@@ -404,7 +431,7 @@ body {
       <span class="sb-pill">Asset Bundles</span>
       <span class="sb-pill">Delta Lake</span>
       <span class="sb-pill">dbt</span>
-      <span class="sb-pill">PySpark</span>
+      <span class="sb-pill">ETL / ELT</span>
       <span class="sb-pill">Databricks SQL</span>
     </div>
 
@@ -477,12 +504,20 @@ body {
 
   <!-- MAIN -->
   <main class="mn">
-    <div class="mn-name">Abishek Subramanian</div>
-    <div class="mn-role">Data &amp; AI Solution Architect | Databricks Technologies &amp; Delivery</div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;">
+      <div class="mn-name">Abishek Subramanian</div>
+      <span style="font-size:7pt;color:var(--muted);">Page 1 of 2</span>
+    </div>
+    <div class="mn-role">Data &amp; AI Solution Architect &nbsp;|&nbsp; Databricks Technologies &amp; Delivery</div>
+
+    <div class="ats-strip">
+      <div class="ats-strip-lbl">Core Competencies</div>
+      <div class="ats-strip-items">Data Lakehouse Architecture &nbsp;·&nbsp; Unity Catalog &amp; Governance &nbsp;·&nbsp; GenAI / RAG / LLM &nbsp;·&nbsp; Apache Spark / PySpark &nbsp;·&nbsp; ETL/ELT Pipeline Development &nbsp;·&nbsp; Delta Live Tables &nbsp;·&nbsp; MLflow &amp; MLOps &nbsp;·&nbsp; Multi-Cloud Architecture (Azure · AWS · GCP) &nbsp;·&nbsp; Data Engineering &nbsp;·&nbsp; Python &nbsp;·&nbsp; CI/CD &nbsp;·&nbsp; Agile Delivery</div>
+    </div>
 
     <div class="mn-sec">Professional Summary</div>
     <p class="mn-summary">
-      Data and AI leader with <strong>18+ years</strong> of enterprise experience helping global organisations turn fragmented data estates into governed, AI-ready lakehouse platforms — at petabyte scale, across clouds, and at speed. Currently leading one of the most complex Azure-to-GCP Databricks migrations in the region for a global retail enterprise. Previously at Databricks for <strong>nearly 4 years</strong>, partnering with Fortune 500 clients to architect and operationalize high-impact data and AI platforms. Deep expertise across the full Databricks stack — Unity Catalog, LakeFlow, GenAI, Delta Live Tables — and multi-cloud delivery on Azure, AWS, and GCP.
+      Results-driven Data &amp; AI leader with <strong>18+ years</strong> of enterprise experience architecting governed, AI-ready lakehouse platforms that deliver measurable business outcomes — at petabyte scale, across clouds, and at speed. Currently spearheading one of the region's most complex <strong>Azure-to-GCP Databricks migrations</strong> for a global retail enterprise (70+ TB, zero downtime). Previously at Databricks for <strong>nearly 4 years</strong>, partnering with Fortune 500 clients to design and operationalise high-impact data engineering and AI platforms. Deep expertise in the full Databricks stack — Unity Catalog, LakeFlow, Delta Live Tables, GenAI/RAG — and multi-cloud delivery across <strong>Azure, AWS, and GCP</strong>.
     </p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px 8px;margin:8px 0 4px;">
       <div style="background:#f0f5fb;border-left:3px solid var(--acc);padding:5px 7px;border-radius:3px;">
