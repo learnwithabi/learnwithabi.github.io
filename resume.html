@@ -865,6 +865,29 @@
             .social-link { width: 38px; height: 38px; font-size: 0.95rem; }
         }
 
+        /* Core Competencies Strip */
+        .core-competencies {
+            background: #f8fafd;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 20px 0 5px;
+        }
+        .core-comp-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .core-comp-items {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
         /* Scroll Animation */
         .fade-in {
             opacity: 0;
@@ -944,15 +967,20 @@
                 <h2 class="section-title">Professional Summary</h2>
             </div>
             <p class="summary-text">
-                I help enterprises turn fragmented data estates into <strong>governed, AI-ready platforms</strong> that deliver measurable business outcomes — at petabyte scale, across clouds, and at speed.
+                Results-driven Data &amp; AI leader with <strong>18+ years</strong> of enterprise experience architecting governed, AI-ready lakehouse platforms that deliver measurable business outcomes — at petabyte scale, across clouds, and at speed. Currently spearheading one of the region's most complex <strong>Azure-to-GCP Databricks migrations</strong> for a global retail enterprise (70+ TB, zero downtime). Previously at Databricks for <strong>nearly 4 years</strong>, partnering with Fortune 500 clients to design and operationalise high-impact data engineering and AI platforms. Deep expertise in the full Databricks stack — Unity Catalog, LakeFlow, Delta Live Tables, GenAI/RAG — and multi-cloud delivery across Azure, AWS, and GCP.
             </p>
-            <p class="summary-text" style="margin-top: 15px;">
-                With <strong>18+ years</strong> in enterprise technology — including <strong>5+ years</strong> deep in Databricks, modern data engineering, and GenAI — I sit at the intersection of delivery leadership and technical architecture. Currently leading one of the most complex cloud lakehouse migrations in the region: a <strong>petabyte-scale Azure-to-GCP transformation</strong> for one of the world's largest retail enterprises. Previously at Databricks, I partnered with Fortune 500 organisations to architect and operationalize data and AI platforms that moved the needle on cost, performance, and competitive agility.
-            </p>
+            <div class="core-competencies">
+                <div class="core-comp-label">Core Competencies</div>
+                <div class="core-comp-items">Data Lakehouse Architecture &nbsp;·&nbsp; Unity Catalog &amp; Governance &nbsp;·&nbsp; GenAI / RAG / LLM &nbsp;·&nbsp; Apache Spark / PySpark &nbsp;·&nbsp; ETL/ELT Pipeline Development &nbsp;·&nbsp; Delta Live Tables &nbsp;·&nbsp; MLflow &amp; MLOps &nbsp;·&nbsp; Multi-Cloud Architecture (Azure · AWS · GCP) &nbsp;·&nbsp; Data Engineering &nbsp;·&nbsp; Python &nbsp;·&nbsp; CI/CD &nbsp;·&nbsp; Agile Delivery Leadership</div>
+            </div>
             <div class="highlight-stats">
                 <div class="stat-card">
                     <div class="stat-number">18+</div>
                     <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years in Databricks</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">15+</div>
@@ -1016,13 +1044,13 @@
                             <i class="fas fa-map-marker-alt"></i> Bengaluru, India
                         </div>
                         <ul class="timeline-details">
-                            <li>Drove cost reduction and faster development cycles by establishing <strong>Databricks Asset Bundle deployment</strong> best practices in collaboration with senior architects</li>
-                            <li>Developed implementation guidelines for <strong>GenAI initiatives</strong> using Retrieval-Augmented Generation (RAG) architecture, enabling product teams to adopt GenAI</li>
-                            <li>Provided expert guidance on modern data engineering with <strong>Delta Live Tables (DLT)</strong> and dbt, enabling customers to build reliable, scalable data pipelines</li>
-                            <li>Resolved critical blockers in customer ML model building and serving, ensuring stability of ML workloads and keeping delivery on track</li>
-                            <li>Helped a customer pioneer a <strong>custom AI Bot Space</strong> on Databricks Apps, integrating Unity Catalog and custom models into a secure, advanced AI tool</li>
-                            <li>Established and maintained high-performance Databricks clusters with robust access controls, encryption, and security policies</li>
-                            <li>Optimized platform costs through resource-utilization monitoring using system tables, and delivered training that boosted user proficiency</li>
+                            <li>Established <strong>Databricks Asset Bundle (DAB)</strong> deployment best practices — reducing development cycles and infrastructure costs for enterprise customers</li>
+                            <li>Developed implementation guidelines for <strong>GenAI using RAG architecture</strong> (Genie AI/BI, AgentBrick), enabling product teams to adopt GenAI at enterprise scale</li>
+                            <li>Architected production-grade data pipelines using <strong>Delta Live Tables + dbt</strong> — medallion architecture, data quality expectations, and automated Workflows orchestration</li>
+                            <li>Designed a <strong>custom AI Bot Space</strong> on Databricks Apps, integrating Unity Catalog and custom models into a secure, governed enterprise AI tool</li>
+                            <li>Built <strong>ML lifecycle platforms</strong> with MLflow — experiment tracking, model registry, REST-based Model Serving; resolved critical ML workload blockers for enterprise clients</li>
+                            <li>Established high-performance Databricks clusters with robust <strong>access controls, encryption, and Unity Catalog security policies</strong></li>
+                            <li>Optimised <strong>platform costs via system tables</strong> — DBU consumption tracking, cluster utilisation analysis, and autoscaling policy enforcement across teams</li>
                         </ul>
                     </div>
                 </div>
@@ -1298,6 +1326,46 @@
                         <span class="project-tag">StoreFront</span>
                     </div>
                 </div>
+                <div class="project-card">
+                    <div class="project-title">Unity Catalog Governance Framework</div>
+                    <div class="project-desc">Enterprise UC implementation — three-level namespace, fine-grained access controls, row/column-level security, data lineage tracking, and audit logging across multi-workspace Databricks deployments.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">Unity Catalog</span>
+                        <span class="project-tag">Data Governance</span>
+                        <span class="project-tag">Access Controls</span>
+                        <span class="project-tag">Audit Logging</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">Databricks Platform Cost Optimisation</div>
+                    <div class="project-desc">System-tables observability framework tracking DBU consumption, cluster utilisation, and job cost attribution across teams — delivering measurable spend reduction through autoscaling policies and query optimisation.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">System Tables</span>
+                        <span class="project-tag">Databricks SQL</span>
+                        <span class="project-tag">Cost Management</span>
+                        <span class="project-tag">Photon</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">DAB CI/CD Deployment Framework</div>
+                    <div class="project-desc">Databricks Asset Bundle CI/CD best practices — automated workspace deployment, environment promotion, and version-controlled Databricks Jobs, pipelines, and clusters across enterprise environments.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">Asset Bundles</span>
+                        <span class="project-tag">CI/CD</span>
+                        <span class="project-tag">Azure DevOps</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">Structured Streaming Real-Time Pipeline</div>
+                    <div class="project-desc">High-throughput event ingestion using Structured Streaming and Auto Loader — exactly-once semantics, schema evolution, and Delta Lake as the sink for real-time analytics at scale.</div>
+                    <div class="project-tags">
+                        <span class="project-tag">Structured Streaming</span>
+                        <span class="project-tag">Auto Loader</span>
+                        <span class="project-tag">Delta Lake</span>
+                        <span class="project-tag">Apache Spark</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1319,7 +1387,6 @@
                         <span class="skill-tag">Databricks Lakehouse</span>
                         <span class="skill-tag">Unity Catalog</span>
                         <span class="skill-tag">MLflow</span>
-                        <span class="skill-tag">Apache Spark</span>
                         <span class="skill-tag">PySpark</span>
                         <span class="skill-tag">Delta Lake</span>
                         <span class="skill-tag">Structured Streaming</span>
@@ -1328,6 +1395,10 @@
                         <span class="skill-tag">Model Serving</span>
                         <span class="skill-tag">AI Gateway</span>
                         <span class="skill-tag">Databricks Apps</span>
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">ETL / ELT</span>
+                        <span class="skill-tag">MLOps</span>
+                        <span class="skill-tag">LLM / RAG</span>
                         <span class="skill-tag">LakeFlow</span>
                         <span class="skill-tag">Genie AI/BI</span>
                         <span class="skill-tag">AgentBrick</span>
