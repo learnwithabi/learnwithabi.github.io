@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abishek Subramanian — Data &amp; AI Solution Architect</title>
+<meta name="description" content="Data &amp; AI Solution Architect with 18+ years of experience architecting governed, AI-ready Databricks lakehouse platforms at petabyte scale across Azure, AWS, and GCP.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0f1e;
+    --bg-soft:#0e1526;
+    --card:#121a2e;
+    --card-hover:#161f36;
+    --border:#212c47;
+    --text:#e7ebf5;
+    --muted:#8b96b3;
+    --muted2:#5f6b8a;
+    --acc:#4c8dff;
+    --acc2:#7ee0d3;
+    --acc3:#f0a5c9;
+    --grad: linear-gradient(120deg,#6ea8ff 0%,#8fd8ff 45%,#eaf6ff 100%);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,'Segoe UI',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .display{font-family:'Space Grotesk',sans-serif;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* Background texture */
+  body::before{
+    content:'';
+    position:fixed; inset:0;
+    background:
+      radial-gradient(700px 400px at 15% -5%, rgba(76,141,255,.16), transparent 60%),
+      radial-gradient(600px 500px at 100% 10%, rgba(126,224,211,.10), transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* Nav */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,15,30,.75);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:1080px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:15px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .logo-mark{
+    width:30px;height:30px;border-radius:8px;
+    background:var(--grad);
+    color:#0a0f1e;font-weight:800;font-size:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .nav-links{display:flex;gap:26px;font-size:13.5px;color:var(--muted);}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    font-size:13px;font-weight:600;
+    padding:7px 15px;border-radius:7px;
+    border:1px solid var(--border);
+    background:var(--card);
+  }
+  .nav-cta:hover{border-color:var(--acc);}
+  @media (max-width:720px){ .nav-links{display:none;} }
+
+  /* Hero */
+  header.hero{position:relative;z-index:1;padding:76px 0 40px;}
+  .eyebrow{
+    font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--acc2);font-weight:600;
+    display:flex;align-items:center;gap:10px;margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--acc2);display:inline-block;}
+  h1.name{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(40px,7vw,68px);
+    font-weight:700;line-height:1.03;letter-spacing:-1px;
+    background:var(--grad);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .role-badges{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px;}
+  .badge{
+    font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;
+    border:1px solid var(--border);color:var(--muted);
+  }
+  .badge.acc{border-color:rgba(76,141,255,.4);color:var(--acc);background:rgba(76,141,255,.08);}
+  .badge.acc2{border-color:rgba(126,224,211,.4);color:var(--acc2);background:rgba(126,224,211,.08);}
+  .badge.acc3{border-color:rgba(240,165,201,.4);color:var(--acc3);background:rgba(240,165,201,.08);}
+
+  .tagline{font-size:clamp(20px,3vw,27px);font-weight:600;color:#fff;max-width:640px;margin-bottom:14px;}
+  .tagline em{font-style:normal;color:var(--acc);}
+  .tagline .em2{color:var(--acc2);}
+  .tagline .em3{color:var(--acc3);}
+  .intro{color:var(--muted);max-width:620px;font-size:15px;margin-bottom:28px;}
+  .intro strong{color:var(--text);font-weight:600;}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;}
+  .btn{
+    font-size:13.5px;font-weight:600;padding:10px 18px;border-radius:8px;
+    border:1px solid var(--border);
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .btn.primary{background:var(--acc);border-color:var(--acc);color:#04101f;}
+  .btn.primary:hover{background:#69a0ff;}
+  .btn:not(.primary){background:var(--card);color:var(--text);}
+  .btn:not(.primary):hover{border-color:var(--acc);}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted2);font-size:13px;margin-bottom:36px;}
+  .meta-row span{display:flex;align-items:center;gap:6px;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--acc);display:inline-block;}
+
+  .stack-strip{
+    display:flex;flex-wrap:wrap;gap:8px;
+    border-top:1px solid var(--border);padding-top:22px;
+  }
+  .stack-strip .tag{
+    font-size:11.5px;color:var(--muted);
+    background:var(--card);border:1px solid var(--border);
+    padding:5px 10px;border-radius:6px;
+  }
+
+  /* Section shell */
+  section{position:relative;z-index:1;padding:52px 0;}
+  .sec-label{
+    font-size:11.5px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--acc2);font-weight:700;margin-bottom:6px;
+  }
+  h2.sec-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(24px,3.4vw,32px);font-weight:700;color:#fff;margin-bottom:30px;
+  }
+
+  /* Timeline */
+  .timeline{position:relative;padding-left:26px;border-left:2px solid var(--border);}
+  .tl-item{position:relative;padding-bottom:30px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{
+    position:absolute;left:-32px;top:3px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--acc);
+  }
+  .tl-item.current .tl-dot{background:var(--acc);box-shadow:0 0 0 4px rgba(76,141,255,.18);}
+  .tl-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:12px;padding:18px 20px;
+  }
+  .tl-card:hover{border-color:#2c3a5e;}
+  .tl-hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:2px;}
+  .tl-role{font-size:16px;font-weight:700;color:#fff;}
+  .tl-co{font-size:13.5px;color:var(--acc);font-weight:600;margin-top:1px;}
+  .tl-loc{font-size:12px;color:var(--muted2);margin:2px 0 10px;}
+  .tl-date{
+    font-size:11.5px;font-weight:600;color:var(--acc2);
+    background:rgba(126,224,211,.08);border:1px solid rgba(126,224,211,.25);
+    padding:3px 10px;border-radius:20px;white-space:nowrap;
+  }
+  .tl-list{list-style:none;}
+  .tl-list li{
+    font-size:13.5px;color:var(--muted);line-height:1.55;
+    padding:3px 0 3px 15px;position:relative;
+  }
+  .tl-list li::before{content:'→';position:absolute;left:0;color:var(--acc);font-size:11px;top:5px;}
+  .tl-list li strong{color:var(--text);font-weight:600;}
+
+  .earlier-toggle{
+    margin-top:20px;font-size:13px;color:var(--muted);
+  }
+  .earlier-row{
+    display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:9px 0;border-bottom:1px dashed var(--border);font-size:13px;
+  }
+  .earlier-row:last-child{border-bottom:none;}
+  .earlier-role{color:var(--text);font-weight:600;}
+  .earlier-co{color:var(--muted);}
+  .earlier-dt{color:var(--muted2);white-space:nowrap;}
+
+  /* Tech stack grid */
+  .stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media (max-width:760px){.stack-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:480px){.stack-grid{grid-template-columns:1fr;}}
+  .stack-card{
+    background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;
+  }
+  .stack-card h3{font-size:13px;color:#fff;margin-bottom:10px;font-weight:700;}
+  .stack-pills{display:flex;flex-wrap:wrap;gap:6px;}
+  .stack-pills span{
+    font-size:11.5px;color:var(--muted);
+    background:var(--bg-soft);border:1px solid var(--border);
+    padding:4px 9px;border-radius:6px;
+  }
+
+  /* Projects */
+  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:720px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{
+    background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:18px 20px;border-top:3px solid var(--acc);
+  }
+  .proj-card h3{font-size:14.5px;color:#fff;margin-bottom:6px;font-weight:700;}
+  .proj-card p{font-size:13px;color:var(--muted);line-height:1.55;}
+
+  /* Certifications */
+  .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:720px){.cert-grid{grid-template-columns:1fr;}}
+  .cert-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
+  .cert-prov{
+    font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .cert-dot{width:8px;height:8px;border-radius:2px;background:var(--acc);}
+  .cert-items{list-style:none;display:flex;flex-direction:column;gap:5px;}
+  .cert-items li{font-size:12.5px;color:var(--muted);padding-left:14px;position:relative;}
+  .cert-items li::before{content:'✓';position:absolute;left:0;color:var(--acc2);font-size:11px;}
+  .cert-items li strong{color:var(--text);}
+
+  /* Recognition */
+  .recog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  @media (max-width:760px){.recog-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:480px){.recog-grid{grid-template-columns:1fr;}}
+  .recog-card{
+    background:var(--card);border:1px solid var(--border);border-top:2.5px solid var(--acc2);
+    border-radius:10px;padding:14px 16px;
+  }
+  .recog-card strong{display:block;font-size:13px;color:#fff;margin-bottom:4px;}
+  .recog-card span{font-size:12px;color:var(--muted);line-height:1.5;}
+
+  /* Stats */
+  .stats-bar{
+    display:flex;border:1px solid var(--border);border-radius:12px;overflow:hidden;
+    background:var(--card);margin-top:14px;
+  }
+  .stat{flex:1;text-align:center;padding:16px 6px;border-right:1px solid var(--border);}
+  .stat:last-child{border-right:none;}
+  .stat b{
+    font-family:'Space Grotesk',sans-serif;
+    display:block;font-size:22px;color:#fff;
+  }
+  .stat span{font-size:11px;color:var(--muted2);}
+  @media (max-width:600px){ .stats-bar{flex-wrap:wrap;} .stat{flex:1 1 33%;border-bottom:1px solid var(--border);} }
+
+  /* CTA footer */
+  .cta-footer{
+    text-align:center;padding:64px 24px;margin:20px auto 0;max-width:1080px;
+    border-top:1px solid var(--border);
+  }
+  .cta-footer .eyebrow{justify-content:center;}
+  .cta-footer .eyebrow::before{display:none;}
+  .cta-footer h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(26px,4vw,38px);color:#fff;margin-bottom:12px;font-weight:700;
+  }
+  .cta-footer p{color:var(--muted);max-width:480px;margin:0 auto 26px;font-size:14.5px;}
+  .cta-footer .cta-row{justify-content:center;}
+
+  footer.site-footer{
+    border-top:1px solid var(--border);padding:22px 0 40px;
+    color:var(--muted2);font-size:12.5px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    position:relative;z-index:1;
+  }
+  footer.site-footer a{color:var(--muted);}
+  footer.site-footer a:hover{color:var(--acc);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner wrap" style="padding-left:0;padding-right:0;">
+    <div class="logo"><span class="logo-mark">AS</span> Abishek Subramanian</div>
+    <div class="nav-links">
+      <a href="#journey">Journey</a>
+      <a href="#stack">Tech Stack</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#speaking">Speaking</a>
+    </div>
+    <a class="nav-cta" href="mailto:Abishek_vnb@hotmail.com">Contact</a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">Data Architect · AI Engineer</div>
+  <h1 class="name display">Abishek<br>Subramanian</h1>
+
+  <div class="role-badges">
+    <span class="badge acc">Data &amp; AI Solution Architect</span>
+    <span class="badge acc2">Databricks Lakehouse Architect</span>
+    <span class="badge acc3">GenAI / RAG Engineer</span>
+  </div>
+
+  <div class="tagline">Building <em>Governed</em>, <span class="em2">Scalable</span>, and <span class="em3">Intelligent</span> Data Platforms.</div>
+  <p class="intro">Data &amp; AI leader with <strong>18+ years</strong> of enterprise experience architecting governed, AI-ready lakehouse platforms across <strong>Retail</strong> and enterprise verticals. Nearly <strong>4 years at Databricks</strong>, now leading a petabyte-scale <strong>Azure-to-GCP migration</strong> (4 PB, zero downtime) and building the full Databricks stack — Unity Catalog, LakeFlow, Delta Live Tables, GenAI/RAG.</p>
+
+  <div class="cta-row">
+    <a class="btn primary" href="https://linkedin.com/in/abishek-subramanian">LinkedIn</a>
+    <a class="btn" href="https://github.com/learnwithabi">GitHub</a>
+    <a class="btn" href="Abishek-Subramanian-Resume.pdf">Resume ↓</a>
+    <a class="btn" href="mailto:Abishek_vnb@hotmail.com">Say Hello</a>
+  </div>
+
+  <div class="meta-row">
+    <span><span class="dot"></span>Bengaluru, IN</span>
+    <span><span class="dot"></span>18+ years experience</span>
+    <span><span class="dot"></span>Azure · AWS · GCP</span>
+  </div>
+
+  <div class="stack-strip">
+    <span class="tag">Databricks</span><span class="tag">Unity Catalog</span><span class="tag">Delta Live Tables</span>
+    <span class="tag">Apache Spark</span><span class="tag">GenAI / RAG</span><span class="tag">MLflow</span>
+    <span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Terraform</span>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat"><b>18+</b><span>Years Experience</span></div>
+    <div class="stat"><b>5+</b><span>Years in Databricks</span></div>
+    <div class="stat"><b>15+</b><span>Team Size Led</span></div>
+    <div class="stat"><b>4 PB</b><span>Data Migrated</span></div>
+    <div class="stat"><b>20%+</b><span>Efficiency Gains</span></div>
+  </div>
+</header>
+
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-label">Career</div>
+    <h2 class="sec-title">Professional Journey</h2>
+
+    <div class="timeline">
+      <div class="tl-item current">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-hdr">
+            <div>
+              <div class="tl-role">Associate Director — Databricks Technologies &amp; Delivery</div>
+              <div class="tl-co">Wavicle Data Solutions</div>
+            </div>
+            <span class="tl-date">Feb 2026 – Present</span>
+          </div>
+          <div class="tl-loc">Bengaluru, India</div>
+          <ul class="tl-list">
+            <li>Architecting a <strong>petabyte-scale Azure-to-GCP Databricks lakehouse migration</strong> for a global retail group — 4 PB moved through a phased, zero-downtime program</li>
+            <li>Designed a <strong>six-step automated migration framework</strong>: classification → config mapping → JSON transform → dependency-ordered deployment → REST-API deployment → validation</li>
+            <li>Built custom <strong>Asset Migrator &amp; Validator</strong> frameworks for governed, error-free cross-cloud migration of clusters, jobs, pipelines, secrets, and policies</li>
+            <li>Implemented <strong>Unity Catalog governance</strong> on the target platform, preserving access controls, lineage, and audit logs</li>
+            <li>Leading a distributed offshore/onsite engineering team — solution architecture, technical mentoring, senior stakeholder management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-hdr">
+            <div>
+              <div class="tl-role">Senior Solution Engineer</div>
+              <div class="tl-co">Databricks India Pvt. Ltd.</div>
+            </div>
+            <span class="tl-date">May 2022 – Feb 2026</span>
+          </div>
+          <div class="tl-loc">Bengaluru, India</div>
+          <ul class="tl-list">
+            <li>Established <strong>Databricks Asset Bundle (DAB)</strong> deployment best practices, reducing dev cycles and infra costs for enterprise customers</li>
+            <li>Developed implementation guidance for <strong>GenAI using RAG</strong> (Genie AI/BI, AgentBrick), enabling enterprise-scale GenAI adoption</li>
+            <li>Architected production pipelines with <strong>Delta Live Tables + dbt</strong> — medallion architecture, data quality expectations, Workflows orchestration</li>
+            <li>Designed a custom <strong>AI Bot Space</strong> on Databricks Apps, integrating Unity Catalog and custom models into a governed enterprise AI tool</li>
+            <li>Built <strong>ML lifecycle platforms</strong> with MLflow — experiment tracking, model registry, REST-based Model Serving</li>
+            <li>Optimised <strong>platform costs via system tables</strong> — DBU tracking, cluster utilisation, autoscaling policy enforcement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-hdr">
+            <div>
+              <div class="tl-role">Principal Software Engineer</div>
+              <div class="tl-co">Oracle India Pvt. Ltd.</div>
+            </div>
+            <span class="tl-date">Aug 2021 – May 2022</span>
+          </div>
+          <div class="tl-loc">Bengaluru, India</div>
+          <ul class="tl-list">
+            <li>Onboarded Oracle Cloud Fusion (SaaS) enterprise customers — solution proposals, implementation, cross-stakeholder coordination pre-sales through go-live</li>
+            <li>Defined cloud migration strategy from on-premises to <strong>Oracle Cloud Infrastructure (OCI)</strong> for SaaS and IaaS workloads</li>
+            <li>Drove escalations to swift resolution, coordinating with engineering leads to pre-empt delivery issues</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <div class="tl-hdr">
+            <div>
+              <div class="tl-role">System Integration Specialist Advisor</div>
+              <div class="tl-co">NTT Data</div>
+            </div>
+            <span class="tl-date">May 2018 – Aug 2021</span>
+          </div>
+          <ul class="tl-list">
+            <li>Designed scalable, secure, cost-effective multi-cloud architectures across <strong>Azure, AWS, VMware</strong>; led legacy-to-cloud-native modernisation</li>
+            <li>Built IaC automation frameworks using <strong>Terraform, Ansible, Jenkins</strong> — provisioning, deployment pipelines, configuration management</li>
+            <li>Established cloud governance, security, and compliance standards across DevOps, security, and business stakeholders</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="earlier-toggle">
+      <div style="font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted2);font-weight:700;margin:24px 0 8px;">Earlier Career</div>
+      <div class="earlier-row"><span><span class="earlier-role">Senior Software Engineer</span> <span class="earlier-co">— Oracle India · Cloud Central team, SaaS Fusion post-provision assessments</span></span><span class="earlier-dt">Jul 2015 – May 2018</span></div>
+      <div class="earlier-row"><span><span class="earlier-role">Cloud Engineer</span> <span class="earlier-co">— Citrix R&amp;D India · XenApp, XenDesktop, NetScaler &amp; StoreFront</span></span><span class="earlier-dt">Jun 2013 – Jul 2015</span></div>
+      <div class="earlier-row"><span><span class="earlier-role">System Engineer</span> <span class="earlier-co">— CSS Corp · Global Red Hat / XEN / VMware server administration</span></span><span class="earlier-dt">Jun 2011 – Jun 2013</span></div>
+      <div class="earlier-row"><span><span class="earlier-role">Software Engineer (Contract)</span> <span class="earlier-co">— Wipro Technologies · UNIX batch ops, HPSM/HPOM automation</span></span><span class="earlier-dt">Sep 2010 – Jun 2011</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-label">Skills</div>
+    <h2 class="sec-title">Tech Stack</h2>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h3>Databricks &amp; AI/ML</h3>
+        <div class="stack-pills">
+          <span>Lakehouse</span><span>Unity Catalog</span><span>Delta Live Tables</span><span>LakeFlow</span>
+          <span>Genie AI/BI</span><span>AgentBrick</span><span>RAG / GenAI / LLM</span><span>MLflow</span>
+          <span>MLOps</span><span>Model Serving</span><span>Auto Loader</span><span>Structured Streaming</span>
+          <span>Databricks Apps</span><span>Asset Bundles</span><span>Delta Lake</span><span>dbt</span><span>Databricks SQL</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Cloud Platforms</h3>
+        <div class="stack-pills">
+          <span>Azure Databricks</span><span>ADLS Gen2</span><span>Event Hubs</span><span>Key Vault</span>
+          <span>Azure DevOps</span><span>ARM Templates</span><span>AKS</span><span>AWS Databricks</span>
+          <span>S3 / EC2</span><span>Amazon Bedrock</span><span>AWS IAM</span><span>GCP Databricks</span>
+          <span>GCS / BigQuery</span><span>Terraform</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>DevOps &amp; Programming</h3>
+        <div class="stack-pills">
+          <span>Python</span><span>SQL / Spark SQL</span><span>Docker</span><span>Kubernetes</span>
+          <span>CI/CD</span><span>Jenkins</span><span>Ansible</span><span>Bash</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Monitoring &amp; Automation</h3>
+        <div class="stack-pills">
+          <span>Grafana</span><span>Prometheus</span><span>ELK Stack</span><span>SolarWinds</span>
+          <span>KACE</span><span>Automox</span><span>Chocolatey</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Operating Systems</h3>
+        <div class="stack-pills">
+          <span>Ubuntu</span><span>Red Hat / CentOS</span><span>Oracle Linux</span>
+          <span>Windows Server</span><span>VMware ESXi</span><span>XenServer</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Education &amp; Languages</h3>
+        <div class="stack-pills">
+          <span>B.Tech ECE — Pondicherry University</span><span>English — Professional</span><span>Tamil — Native</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-label">Work</div>
+    <h2 class="sec-title">Key Projects</h2>
+    <div class="proj-grid">
+      <div class="proj-card"><h3>Petabyte-Scale Azure-to-GCP Lakehouse Migration</h3><p>4 PB zero-downtime migration for a global retail enterprise with full Unity Catalog governance and a six-step automated Asset Migrator &amp; Validator framework.</p></div>
+      <div class="proj-card"><h3>GenAI RAG AI Bot Space on Databricks Apps</h3><p>Enterprise AI Bot Space using RAG, Unity Catalog-managed models, and MLflow for secure, governed GenAI workflows at scale.</p></div>
+      <div class="proj-card"><h3>Delta Live Tables + dbt Enterprise Pipeline</h3><p>Medallion architecture pipelines with data quality expectations and automated Workflows orchestration for enterprise ELT at scale.</p></div>
+      <div class="proj-card"><h3>Databricks Platform Cost Optimisation</h3><p>System-tables observability — DBU tracking, cluster utilisation analysis, and autoscaling policies delivering measurable spend reduction.</p></div>
+      <div class="proj-card"><h3>Amazon Bedrock + Databricks Model Serving</h3><p>Integration between Bedrock foundation models and Databricks Model Serving endpoints, demonstrated at Nasdaq AWS Community.</p></div>
+      <div class="proj-card"><h3>Multi-Cloud IaC Automation Framework</h3><p>Terraform, Ansible &amp; Jenkins-based automation across Azure, AWS, VMware — provisioning, CI/CD pipelines, and cloud governance at NTT Data.</p></div>
+      <div class="proj-card"><h3>Unity Catalog Governance Framework</h3><p>Enterprise UC implementation — three-level namespace, fine-grained access controls, row/column-level security, lineage, and audit logging across multi-workspace deployments.</p></div>
+      <div class="proj-card"><h3>Structured Streaming Real-Time Pipeline</h3><p>High-throughput event ingestion using Structured Streaming &amp; Auto Loader — exactly-once semantics, schema evolution, Delta Lake as sink for real-time analytics.</p></div>
+      <div class="proj-card"><h3>DAB CI/CD Deployment Framework</h3><p>Databricks Asset Bundle CI/CD best practices — automated workspace deployment, environment promotion, version-controlled Jobs, pipelines, and clusters.</p></div>
+      <div class="proj-card"><h3>Databricks Security &amp; Access Control</h3><p>Enterprise-grade security implementation — cluster encryption, Unity Catalog row/column-level security, secret management, compliance policy enforcement.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="sec-label">Credentials</div>
+    <h2 class="sec-title">Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-prov"><span class="cert-dot"></span>Databricks</div>
+        <ul class="cert-items">
+          <li><strong>Data Engineer Professional &amp; Associate</strong></li>
+          <li><strong>Solution Architect Essentials (Partner)</strong></li>
+          <li>Platform Administrator</li>
+          <li><strong>Generative AI Fundamentals &amp; GenAI Associate</strong></li>
+          <li><strong>Machine Learning Associate</strong></li>
+          <li>Lakehouse Fundamentals</li>
+        </ul>
+      </div>
+      <div class="cert-card">
+        <div class="cert-prov"><span class="cert-dot"></span>Microsoft Azure</div>
+        <ul class="cert-items">
+          <li>Solutions Architect Expert</li>
+          <li>DevOps Engineer Expert</li>
+          <li>Administrator Associate</li>
+          <li>Identity &amp; Access Administrator Associate</li>
+        </ul>
+      </div>
+      <div class="cert-card">
+        <div class="cert-prov"><span class="cert-dot"></span>AWS</div>
+        <ul class="cert-items">
+          <li>Solutions Architect – Professional</li>
+          <li>Solutions Architect – Associate</li>
+          <li>AWS Community Builder</li>
+        </ul>
+      </div>
+      <div class="cert-card">
+        <div class="cert-prov"><span class="cert-dot"></span>Oracle</div>
+        <ul class="cert-items">
+          <li>VM 3.0 for x86 Implementation Specialist</li>
+          <li>Cloud Infrastructure Classic Associate Architect</li>
+        </ul>
+      </div>
+      <div class="cert-card">
+        <div class="cert-prov"><span class="cert-dot"></span>Other</div>
+        <ul class="cert-items">
+          <li>Red Hat Certified Engineer (RHCE)</li>
+          <li>VMware Certified Professional – DCV</li>
+          <li>Citrix Certified – XenServer Administration</li>
+          <li>ITIL V3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="speaking">
+  <div class="wrap">
+    <div class="sec-label">Community</div>
+    <h2 class="sec-title">Speaking &amp; Recognition</h2>
+    <div class="recog-grid">
+      <div class="recog-card"><strong>Founder &amp; Lead</strong><span>Databricks User Group India — India's largest, 6 cities: Bangalore, Hyderabad, Pune, Coimbatore, Kolkata, Chennai</span></div>
+      <div class="recog-card"><strong>Creator</strong><span>#LearnWithAbi — Databricks &amp; GenAI content on LinkedIn, Medium, GitHub</span></div>
+      <div class="recog-card"><strong>DATA+AI Summit Recap</strong><span>Speaker — Databricks &amp; Apache Iceberg</span></div>
+      <div class="recog-card"><strong>9th World ML Summit</strong><span>Speaker — "Unlocking MLOps Potential"</span></div>
+      <div class="recog-card"><strong>ServerlessDays Bengaluru</strong><span>Speaker — Databricks Serverless SQL</span></div>
+      <div class="recog-card"><strong>TechXConf 2024</strong><span>Speaker at Asia's largest AI &amp; cloud conference</span></div>
+      <div class="recog-card"><strong>Nasdaq AWS Community</strong><span>Session — Bedrock + Databricks Model Serving</span></div>
+      <div class="recog-card"><strong>Mastering Generative AI</strong><span>Led sessions on building &amp; serving models with Databricks</span></div>
+      <div class="recog-card"><strong>University Workshops</strong><span>PSG Tech Coimbatore, Adamas University Kolkata &amp; MITS</span></div>
+      <div class="recog-card"><strong>Topmate Creator Awards 2024</strong><span>Nominated — Extraordinaire Category</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-footer">
+  <div class="eyebrow">Get in touch</div>
+  <h2 class="display">Let's build something together.</h2>
+  <p>Open to senior architect and data engineering leadership roles, consulting engagements, and technical collaborations. My inbox is always open.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="mailto:Abishek_vnb@hotmail.com">Say Hello</a>
+    <a class="btn" href="https://linkedin.com/in/abishek-subramanian">LinkedIn</a>
+  </div>
+</div>
+
+<footer class="site-footer wrap">
+  <span>© 2026 Abishek Subramanian</span>
+  <span><a href="https://github.com/learnwithabi">GitHub</a> · <a href="mailto:Abishek_vnb@hotmail.com">Abishek_vnb@hotmail.com</a></span>
+</footer>
+
+</body>
+</html>
