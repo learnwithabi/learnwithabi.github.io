@@ -8,7 +8,7 @@ export const profile = {
   github: "https://github.com/learnwithabi",
   website: "https://learnwithabi.github.io",
   resume: "../Abishek-Subramanian-Resume.pdf",
-  photo: "../abishek pp.png",
+  photo: `${import.meta.env.BASE_URL}abishek-pp.png`,
   tagline: "18+ years architecting governed, AI-ready Databricks lakehouse platforms at petabyte scale — currently leading a 4 PB Azure-to-GCP migration with zero downtime.",
   bio: "I'm a Data & AI Solution Architect with 18+ years of experience building governed, AI-ready lakehouse platforms — including nearly 4 years at Databricks. I enjoy taking migrations and platforms from architecture through automation, governance, and production at petabyte scale.",
 };
