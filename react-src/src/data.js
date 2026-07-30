@@ -66,7 +66,7 @@ export const experience = [
   },
   {
     company: "NTT Data",
-    logo: "https://www.google.com/s2/favicons?domain=nttdata.com&sz=128",
+    logo: `${import.meta.env.BASE_URL}ntt-data-logo.png`,
     role: "System Integration Specialist Advisor",
     date: "May 2018 – Aug 2021",
     location: "Bengaluru, India",
